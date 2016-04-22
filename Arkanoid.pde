@@ -25,6 +25,8 @@ class Ball {
   int y;
   float vx;
   float vy;
+  float modv;
+  float rec;
   
   Ball (int trad, float tvel) {
     rad = trad;
@@ -33,8 +35,8 @@ class Ball {
     y = height/2;
     vx = random (-100, 100);
     vy = random (-100, 100);
-    float modv = sqrt (vx*vx + vy*vy);
-    float rec = vel/modv;
+    modv = sqrt (vx*vx + vy*vy);
+    rec = vel/modv;
     vx = vx * rec;
     vy = vy * rec;
   }
@@ -78,6 +80,10 @@ class Ball {
       if (conPad && mousePressed) {
         if (mouseX > x) vx += vel/2;
         if (mouseX < x) vx -= vel/2;
+        modv = sqrt (vx*vx + vy*vy);
+        rec = vel/modv;
+        vx = rec * vx;
+        vy = rec * vy;
       }
     }
     if (y-rad < yb && x+rad > xl && x-rad < xr && y-rad-vy > yb) {
