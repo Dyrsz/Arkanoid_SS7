@@ -1,3 +1,3 @@
-# Prcssng_Ndrd_Arkanoid
+# Arkanoid_SS7
 
 Prueba: Arkanoid con Processing para SS7.
